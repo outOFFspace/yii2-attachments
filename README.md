@@ -21,13 +21,13 @@ Installation
 	Either run
 	
 	```
-	php composer.phar require nemmo/yii2-attachments "~1.0.0"
+	php composer.phar require outoffspace/yii2-attachments "~1.0.0"
 	```
 	
 	or add
 	
 	```
-	"nemmo/yii2-attachments": "~1.0.0"
+	"outoffspace/yii2-attachments": "~1.0.0"
 	```
 	
 	to the require section of your `composer.json` file.
@@ -38,7 +38,7 @@ Installation
 	'modules' => [
 		...
 		'attachments' => [
-			'class' => nemmo\attachments\Module::className(),
+			'class' => outoffspace\attachments\Module::className(),
 			'tempPath' => '@app/uploads/temp',
 			'storePath' => '@app/uploads/store',
 			'rules' => [ // Rules according to the FileValidator
@@ -61,7 +61,7 @@ Installation
 		'migrate' => [
 			'class' => 'yii\console\controllers\MigrateController',
 			'migrationNamespaces' => [
-				'nemmo\attachments\migrations',
+				'outoffspace\attachments\migrations',
 			],
 		],
 		...
@@ -80,7 +80,7 @@ Installation
 		return [
 			...
 			'fileBehavior' => [
-				'class' => \nemmo\attachments\behaviors\FileBehavior::className()
+				'class' => \outoffspace\attachments\behaviors\FileBehavior::className()
 			]
 			...
 		];
@@ -97,7 +97,7 @@ Usage
 1. In the `form.php` of your model add file input
 	
 	```php
-	<?= \nemmo\attachments\components\AttachmentsInput::widget([
+	<?= \outoffspace\attachments\components\AttachmentsInput::widget([
 		'id' => 'file-input', // Optional
 		'model' => $model,
 		'options' => [ // Options of the Kartik's FileInput widget
@@ -112,7 +112,7 @@ Usage
 2. Use widget to show all attachments of the model in the `view.php`
 	
 	```php
-	<?= \nemmo\attachments\components\AttachmentsTable::widget([
+	<?= \outoffspace\attachments\components\AttachmentsTable::widget([
 		'model' => $model,
 		'showDeleteButton' => false, // Optional. Default value is true
 	])?>
@@ -141,7 +141,7 @@ You may add the following function to your model
     
 ```php
 public function init(){
-    $this->on(\nemmo\attachments\behaviors\FileBehavior::EVENT_AFTER_ATTACH_FILES, function ($event) {
+    $this->on(\outoffspace\attachments\behaviors\FileBehavior::EVENT_AFTER_ATTACH_FILES, function ($event) {
         /** @var $files \nemmo\attachments\models\File[] */
         $files = $event->files;
         //your custom code
@@ -152,7 +152,7 @@ public function init(){
     
 Change log
 ----------
-
+- **Nov 8, 2020**  - 	Change kartik-v/yii2-widget-fileinput dependency to @dev
 - **Dec 7, 2016**  - 	Migration namespace coming with Yii 2.0.10. Release 1.0.0-beta.3.
 - **Apr 19, 2016**  - 	Refactoring and testing. Ajax removing. Release 1.0.0-beta.2.
 - **Aug 17, 2015**  - 	Support for prefix on table - you can specify the table name before migrating
