@@ -1,5 +1,5 @@
 {
-  "name": "nemmo/yii2-attachments",
+  "name": "outoffspace/yii2-attachments",
   "description": "Extension for file uploading and attaching to the models",
   "type": "yii2-extension",
   "keywords": [
@@ -16,6 +16,12 @@
       "name": "Alimzhan Abuov aka Nemmo",
       "email": "alimzhan.abu@yandex.kz",
       "homepage": "http://alimzhan.kz",
+      "role": "Developer"
+    },
+    {
+      "name": "Bogdan Vovchuk",
+      "email": "vovchuck.bogdan@gmail.com",
+      "homepage": "https://www.mindsugar.com",
       "role": "Developer"
     }
   ],
