@@ -43,8 +43,8 @@ Installation
 			'storePath' => '@app/uploads/store',
 			'rules' => [ // Rules according to the FileValidator
 			    'maxFiles' => 10, // Allow to upload maximum 3 files, default to 3
-				'mimeTypes' => 'image/png', // Only png images
-				'maxSize' => 1024 * 1024 // 1 MB
+			    'mimeTypes' => 'image/png', // Only png images
+			    'maxSize' => 1024 * 1024 // 1 MB
 			],
 			'tableName' => '{{%attachments}}' // Optional, default to 'attach_file'
 		]
@@ -61,7 +61,7 @@ Installation
 		'migrate' => [
 			'class' => 'yii\console\controllers\MigrateController',
 			'migrationNamespaces' => [
-				'outoffspace\attachments\migrations',
+			    'outoffspace\attachments\migrations',
 			],
 		],
 		...
@@ -80,7 +80,7 @@ Installation
 		return [
 			...
 			'fileBehavior' => [
-				'class' => \outoffspace\attachments\behaviors\FileBehavior::className()
+			    'class' => \outoffspace\attachments\behaviors\FileBehavior::className()
 			]
 			...
 		];
@@ -101,10 +101,10 @@ Usage
 		'id' => 'file-input', // Optional
 		'model' => $model,
 		'options' => [ // Options of the Kartik's FileInput widget
-			'multiple' => true, // If you want to allow multiple upload, default to false
+		    'multiple' => true, // If you want to allow multiple upload, default to false
 		],
 		'pluginOptions' => [ // Plugin options of the Kartik's FileInput widget 
-			'maxFileCount' => 10 // Client max files
+		    'maxFileCount' => 10 // Client max files
 		]
 	]) ?>
 	```
@@ -142,7 +142,7 @@ You may add the following function to your model
 ```php
 public function init(){
     $this->on(\outoffspace\attachments\behaviors\FileBehavior::EVENT_AFTER_ATTACH_FILES, function ($event) {
-        /** @var $files \nemmo\attachments\models\File[] */
+        /** @var $files \outoffspace\attachments\models\File[] */
         $files = $event->files;
         //your custom code
     });
